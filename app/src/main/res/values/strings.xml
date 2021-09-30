@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Chatbot App</string>
+
+    <string name="nav_header_title" translatable="false">Android Studio</string>
+    <string name="nav_header_subtitle" translatable="false">android.studio@android.com</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+
+    <string name="hello_world">Hello Square World!</string>
+
+    <!--our strings -->
+    <string name="enter_name">Enter Name</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="already_signin">Already a user? Sign in</string>
+    <string name="login">Login</string>
+    <string name="register_user">Register User</string>
+    <string name="reset">Reset Passwrod</string>
+    <string name="register">Register</string>
+
+    <string name="invalidemail">email is invalid</string>
+    <string name="invalidpassword">password is invalid</string>
+
+
+
+</resources>
