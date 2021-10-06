@@ -6,10 +6,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import com.example.chatbotapp.ChatActivity
 import com.example.chatbotapp.R
+import com.example.chatbotapp.nameActivity
 import com.example.chatbotapp.presenter.LoginFragmentPresenter
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
@@ -51,11 +54,16 @@ class LoginFragment : Fragment(), LoginFragmentPresenter.LoginView {
         if (presenter.isEmailValid(email) && presenter.isPasswordValid(pass)) {
             presenter.signInFirebaseWithEmailAndPassword(email, pass) {
             }
+            startActivity(Intent(this.activity, nameActivity::class.java))
         }
-    }
+
+        }
+
 
     override fun showToast(message: String?) {
         Toast.makeText(context, message, Toast.LENGTH_LONG).show()
     }
+
+
 
 }

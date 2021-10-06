@@ -1,7 +1,10 @@
 package com.example.chatbotapp.presenter
 
+import android.content.Intent
 import android.util.Log
 import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
+import com.example.chatbotapp.ChatActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class LoginFragmentPresenter(val view: LoginView) {
