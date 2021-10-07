@@ -1,14 +1,16 @@
 <resources>
     <string name="app_name">Chatbotapp</string>
 
-
+    <string name="Welcome">Welcome User</string>
     <string name="nav_header_title" translatable="false">Android Studio</string>
     <string name="nav_header_subtitle" translatable="false">android.studio@android.com</string>
+    <string name="navigation_open">Open Navigation drawer</string>
+    <string name="navigation_close">Close Navigation drawer</string>
     <!--
     This string is used for square devices and overridden by hello_world in
     values-round/strings.xml for round devices.
     -->
-
+     <string name="welcome">Welcome</string>
     <string name="hello_world">Hello Square World!</string>
 
     <!--our strings -->

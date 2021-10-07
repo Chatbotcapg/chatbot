@@ -1,17 +1,27 @@
 package com.example.chatbotapp
 
+import android.content.ClipData
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
 import android.content.Context
+import android.content.Intent
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import android.widget.Toolbar
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.chatbotapp.view.MainActivity
+import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_chat.*
 import java.util.*
 import com.pusher.client.Pusher
 import com.pusher.client.PusherOptions
+import kotlinx.android.synthetic.main.activity_name.*
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -22,10 +32,9 @@ private const val TAG = "ChatActivity"
 class ChatActivity : AppCompatActivity() {
 
     private lateinit var adapter: MessageAdapter
-
     private val pusherAppKey = "9124ec5030010fb6eb6d"
     private val pusherAppCluster = "ap2"
-
+    // var uname: String =""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +43,9 @@ class ChatActivity : AppCompatActivity() {
         messageList.layoutManager = LinearLayoutManager(this)
         adapter = MessageAdapter(this)
         messageList.adapter = adapter
+
+        /*uname= username.text.toString()
+        greet_msg.setText("Welcome $uname")*/
 
         btnSend.setOnClickListener {
             if(txtMessage.text.isNotEmpty()) {
@@ -67,6 +79,30 @@ class ChatActivity : AppCompatActivity() {
 
         setupPusher()
     }
+
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean{
+        val inflater = menuInflater
+        inflater.inflate(R.menu.sidemenu, menu)
+        return true
+    }
+
+   override fun onOptionsItemSelected(item: MenuItem): Boolean {
+       // Handle item selection
+      return when (item.itemId) {
+          R.id.greet -> {
+              true
+          }
+          R.id.signout -> {
+               startActivity(Intent(this,MainActivity::class.java))
+              true
+           }
+
+           else -> super.onOptionsItemSelected(item)
+       }
+
+   }
+
 
     private fun resetInput() {
         // Clean text box
